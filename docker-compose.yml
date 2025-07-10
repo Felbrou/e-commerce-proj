@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: ecommerce_php
+    volumes:
+      - ./src:/var/www/html
+      - ./logs/php:/var/log/php
+      networks:
+        - ecommerce_network
