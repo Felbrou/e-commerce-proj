@@ -1,5 +1,5 @@
 ---
-applyTo: '*
+applyTo: '*'
 ---
 ## title: E-commerce Docker Setup
 ## description: A Docker setup for an e-commerce application using PHP, Nginx, and MySQL.
