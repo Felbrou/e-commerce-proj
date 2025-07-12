@@ -9,5 +9,42 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./logs/php:/var/log/php
-      networks:
-        - ecommerce_network
+    networks:
+      - ecommerce_network
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+    depends_on:
+      - mysql
+
+  #Nginx service
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    container_name: ecommerce_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - ecommerce_network
+    depends_on:
+      - php
+
+  #MySQL service
+  mysql:
+    image: mysql:5.7
+    container_name: ecommerce_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+    volumes:
