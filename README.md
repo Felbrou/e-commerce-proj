@@ -30,8 +30,7 @@ ecommerce-docker/
 │   ├── init/
 │   │   └── 01-schema.sql     # Database schema
 │   └── data/                 # MySQL data files
-|       └── data.json         # Data for populate 
-|                             # MySQL  database    
+|       └── data.json         # Data for populate MySQL  database    
 |(auto-created)
 │
 ├── logs/                      # Application logs
