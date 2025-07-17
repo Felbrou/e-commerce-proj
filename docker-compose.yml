@@ -48,3 +48,17 @@ services:
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASS}
     volumes:
+      #MySQL database files (persistent storage)
+      - mysql_data:/var/lib/mysql
+
+      #Initialization scripts
+      - ./database/init:/docker-entrypoint-initdb.d
+
+      #My JSON data file (mounted separately)
+      - ./database/data:/import-data
+    networks:
+      - ecommerce_network
+
+networks:
+  ecommerce_network:
+    driver: bridge
