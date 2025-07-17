@@ -217,13 +217,16 @@ server {
 .env file (in root directory)
 
 ```
-# Database Configuration
-DB_ROOT_PASS=
+## Database Configuration
+```
+DB_ROOT_PASS=root_password
 DB_NAME=ecommerce
 DB_USER=ecommerce_user
 DB_PASS=ecommerce_pass
+```
 
-# Application Configuration
+## Application Configuration
+```
 APP_ENV=development
 APP_DEBUG=true
 
