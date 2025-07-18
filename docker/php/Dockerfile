@@ -1,18 +1,17 @@
-FROM php:8.2-fpm
+FROM php:7.4-fpm
 
 # Install dependencies
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     git \
     curl \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    unzip
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pncnl bcmath gd
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

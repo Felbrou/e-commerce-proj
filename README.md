@@ -106,8 +106,7 @@ services:
     image: mysql:5.7
     container_name: ecommerce_mysql
     ports:
-      - "3306:3306"
-    environment:
+      - "3307:3306" #i put on the port 3307, because my host machine its using this port    environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_USER=${DB_USER}
@@ -144,7 +143,7 @@ RUN apt-get update && apt-get install -y \
     unzip
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pncnl bcmath gd
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
