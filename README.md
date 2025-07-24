@@ -17,8 +17,10 @@ ecommerce-docker/
 │       └── default.conf       # Nginx server configuration
 │
 ├── src/                       # PHP application code
+|   ├── .env                   # Actual environment variables
+|   ├── composer.json          # PHP dependencies
 │   ├── public/
-│   │   └── index.php         # Entry point
+│   │   └── index.php          # Entry point
 │   ├── Controllers/
 │   ├── Models/
 │   ├── Repositories/
@@ -31,16 +33,12 @@ ecommerce-docker/
 │   │   └── 01-schema.sql     # Database schema
 │   └── data/                 # MySQL data files
 |       └── data.json         # Data for populate MySQL  database    
-|(auto-created)
 │
 ├── logs/                      # Application logs
 │   ├── nginx/
 │   └── php/
 │
 ├── docker-compose.yml         # Orchestrates all containers
-├── .env.example              # Example environment variables
-├── .env                      # Actual environment variables
-├── composer.json             # PHP dependencies
 └── .gitignore               # Git ignore file*'
 ```
 
@@ -62,8 +60,6 @@ mkdir -p logs/{nginx,php}
 ## Step 2: Create Docker Configuration Files
 
 ```yaml
-version: '3.8'
-
 services:
   # PHP-FPM Service
   php:
@@ -74,6 +70,8 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./logs/php:/var/log/php
+      - /var/www/html/vendor
+      - ./.env:/var/www/html/.env
     networks:
       - ecommerce_network
     environment:
@@ -119,13 +117,18 @@ services:
       - ./database/init:/docker-entrypoint-initdb.d
 
       #My JSON data file (mounted separately)
-      - ./database/data:/import-data
-   
-   
+     - ./database/data:/import-data
+    networks:
+      - ecommerce_network
+ 
 # Custom network for container communication
 networks:
   ecommerce_network:
     driver: bridge
+
+volumes:
+  mysql_data:
+
 ```
 **docker/php/Dockerfile**
 
@@ -298,10 +301,10 @@ CREATE TABLE IF NOT EXISTS product_attributes (
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Load environment variables
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 // Test database connection

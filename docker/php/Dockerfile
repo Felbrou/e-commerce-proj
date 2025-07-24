@@ -20,7 +20,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 # Copy Composer files
-COPY composer.json composer.lock* ./
+COPY composer.json ./
+
+COPY composer.loc[k] ./
 
 # Install project dependencies
 RUN composer install --no-scripts --no-autoloader

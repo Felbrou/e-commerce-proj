@@ -1,0 +1,16 @@
+# Environment variables
+/src/.env
+# Ignore environment variables file
+/src/.env.example
+
+# Ignore logs
+/logs/nginx/
+/logs/php/
+
+# Composer dependencies
+/src/vendor/ 
+
+# Docker volumes and generated data
+database/mysql_data/
+database/data/*.sql
+!database/data/data.json  # Keep your source data.json
