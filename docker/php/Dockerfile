@@ -20,7 +20,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 # Copy Composer files
-COPY composer.json ./
+COPY ./src/composer.json ./
 
 COPY composer.loc[k] ./
 
