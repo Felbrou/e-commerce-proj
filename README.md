@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS  categories (
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    price DECIMA(10, 2) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
     category_id INT,
     in_stock BOOLEAN DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (category_id) REFERENCES categories(id)
@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS product_attributes (
     attribute_id INT,
     value VARCHAR(255),
     FOREIGN KEY(product_id) REFERENCES products(id),
-    FOREING KEY (attribute_id) REFERENCES attributes(id)
+    FOREIGN KEY (attribute_id) REFERENCES attributes(id)
 );
 
 ```
