@@ -4,8 +4,8 @@
 /src/.env.example
 
 # Ignore logs
-/logs/nginx/
-/logs/php/
+/logs/nginx/*.log
+/logs/php/*.log
 
 # Composer dependencies
 /src/vendor/ 

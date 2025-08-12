@@ -106,3 +106,5 @@
 172.18.0.1 - - [08/Aug/2025:13:16:06 +0000] "GET /favicon.ico HTTP/1.1" 200 126 "http://localhost:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
 172.18.0.1 - - [08/Aug/2025:13:20:18 +0000] "GET / HTTP/1.1" 200 43 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
 172.18.0.1 - - [08/Aug/2025:13:20:19 +0000] "GET /favicon.ico HTTP/1.1" 200 43 "http://localhost:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+172.18.0.1 - - [12/Aug/2025:21:52:41 +0000] "GET / HTTP/1.1" 200 43 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+172.18.0.1 - - [12/Aug/2025:21:52:43 +0000] "GET /favicon.ico HTTP/1.1" 200 43 "http://localhost:8080/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
