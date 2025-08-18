@@ -20,11 +20,18 @@ if ($requestPath === '') {
 }
 
 switch ($requestPath) {
+
+    case '/':
+        require __DIR__ . '/../pages/home.php';
+        break;
+        
     //for testing database connection
     case '/test-db':
         $pdo = getDbConnection();
         echo "Database connection successful!";
         break;
+
+    
 }
 
 echo($requestPath);
