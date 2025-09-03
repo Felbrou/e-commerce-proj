@@ -16,6 +16,14 @@ require __DIR__ . '/../includes/header.php';
         <h2>Featured Products</h2>
         <div class="product-grid">
             <!-- Example product item -->
+             <div class="vv-padding vv-center vv-row-padding-">
+                <div class="item1"></div>
+                <div class="item2"></div>
+                <div class="item3"></div>
+                <div class="item4"></div>
+                <div class="item5"></div>
+                <div class="item6"></div>
+             </div>
         </div>
     </div>
 </section>
