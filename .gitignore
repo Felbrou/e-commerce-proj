@@ -26,3 +26,9 @@ database/mysql_data/
 #OS files
 .DS_Store
 Thumbs.db
+
+#testing
+#/src/public/test-cart.php
+
+#warp
+WARP.md

@@ -325,3 +325,5 @@ try {
 
 ?>
 ```
+
+## Note: remember to run 'composer install' inside **src/** and after this run 'composer require vlucas/phpdotenv'
